@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>怪谈冰山图 · 探灵</title>
+<meta name="description" content="中国怪谈与妖怪档案冰山图 —— 3,583 条词条，越往下越深。数据源 The Weird-Esoteric Altar。">
+<meta property="og:title" content="怪谈冰山图 · 探灵">
+<meta property="og:description" content="中国怪谈与妖怪档案冰山图 —— 3,583 条词条，越往下越深。">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#050505">
+<style>
+@font-face{font-family:'NotoSC';src:url('NotoSansSC.woff2') format('woff2');font-display:swap}
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --surface:#050505; --ice:#8ebcf0; --water:#0a5a99; --water-deep:#0c3866;
+  --accent:#ff6a06; --accent-bright:#ff9a3c;
+  --ink:#fff; --ink-2:rgba(255,255,255,.62); --ink-3:rgba(255,255,255,.34);
+  --line:rgba(255,255,255,.10); --maxw:1400px;
+}
+html{scroll-behavior:smooth}
+body{background:var(--surface);color:var(--ink);
+  font-family:'NotoSC',-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif;
+  overflow-x:hidden;-webkit-font-smoothing:antialiased}
+.bg{position:fixed;inset:0;z-index:1;pointer-events:none;overflow:hidden}
+.bg-iceberg{position:absolute;inset:0;z-index:1;opacity:.9;color:var(--ice)}
+.bg-iceberg svg{width:100%;height:100%}
+.bg-water-bg{position:absolute;z-index:1;inset:27.7% 0 0;opacity:.3;
+  background:linear-gradient(180deg,var(--water-deep),transparent 70%)}
+.bg-water{position:absolute;z-index:2;inset:27.7% 0 0;opacity:.45}
+.bg-water svg{width:100%;height:220px}
+.deep-shade{position:fixed;inset:0;z-index:5;pointer-events:none;
+  background:#000;opacity:0;transition:opacity .12s linear}
+header{position:sticky;top:0;z-index:100;background:rgba(5,5,5,.82);backdrop-filter:blur(24px);
+  border-bottom:1px solid var(--line);padding:12px 28px;display:flex;gap:16px;align-items:center;flex-wrap:wrap}
+.brand{font-size:16px;font-weight:700;letter-spacing:.02em;white-space:nowrap}
+.brand em{font-style:normal;color:var(--accent)}
+.brand small{display:block;font-size:11px;font-weight:400;color:var(--ink-3);letter-spacing:0}
+.search{flex:1;min-width:200px;max-width:420px;position:relative}
+.search input{width:100%;background:rgba(255,255,255,.05);border:1px solid var(--line);
+  border-radius:999px;color:var(--ink);padding:8px 16px 8px 36px;font-size:13px;outline:none;font-family:inherit}
+.search input:focus{border-color:var(--accent);background:rgba(255,106,6,.07)}
+.search svg{position:absolute;left:12px;top:50%;transform:translateY(-50%);opacity:.4}
+.hbtns{display:flex;gap:8px;margin-left:auto}
+.hbtn{font-size:12px;padding:6px 13px;border-radius:999px;cursor:pointer;border:1px solid var(--line);
+  background:rgba(255,255,255,.04);color:var(--ink-2);transition:.15s;white-space:nowrap;font-family:inherit}
+.hbtn:hover{border-color:var(--accent);color:var(--accent-bright)}
+.hbtn.on{background:var(--accent);color:#fff;border-color:var(--accent);font-weight:600}
+.filters{position:sticky;top:53px;z-index:90;background:rgba(5,5,5,.86);backdrop-filter:blur(20px);
+  border-bottom:1px solid var(--line);padding:9px 28px;display:flex;gap:7px;flex-wrap:wrap;align-items:center}
+.filters .lbl{font-size:11px;color:var(--ink-3);margin-right:5px;letter-spacing:.08em}
+.cat{font-size:11.5px;padding:4px 12px;border-radius:999px;cursor:pointer;border:1px solid var(--line);
+  background:rgba(255,255,255,.03);color:var(--ink-2);transition:.15s;white-space:nowrap}
+.cat:hover{border-color:var(--cat);color:var(--cat)}
+.cat.on{background:var(--cat);color:#0a0c10;border-color:var(--cat);font-weight:700}
+main{position:relative;z-index:10;max-width:var(--maxw);margin:0 auto;padding:0 28px 120px}
+.hero{padding:72px 0 40px;text-align:center}
+.hero h1{font-size:44px;font-weight:800;letter-spacing:-.02em;line-height:1.15}
+.hero h1 em{font-style:normal;color:var(--accent)}
+.hero p{margin-top:14px;font-size:14px;color:var(--ink-2);line-height:1.9}
+.hero .nums{margin-top:26px;display:inline-flex;gap:30px;padding:14px 30px;
+  border:1px solid var(--line);border-radius:14px;background:rgba(255,255,255,.025)}
+.hero .nums div{text-align:center}
+.hero .nums b{display:block;font-size:26px;font-weight:800;color:var(--accent-bright);line-height:1.1}
+.hero .nums span{font-size:11px;color:var(--ink-3);letter-spacing:.1em}
+.surface{position:relative;height:70px;margin:10px 0 0;display:flex;align-items:center;justify-content:center}
+.surface::before{content:"";position:absolute;left:0;right:0;top:50%;height:1px;
+  background:linear-gradient(90deg,transparent,rgba(139,188,240,.5),transparent)}
+.surface span{position:relative;padding:3px 16px;background:var(--surface);
+  font-size:11px;letter-spacing:.35em;color:var(--ice);opacity:.8}
+.tier{position:relative;padding:30px 0 34px;content-visibility:auto;contain-intrinsic-size:auto 900px}
+.tier+.tier{border-top:1px solid rgba(139,188,240,.07)}
+.tier-hd{display:flex;align-items:baseline;gap:14px;margin-bottom:20px;position:sticky;top:96px;z-index:8;
+  padding:10px 34px 10px 0;background:linear-gradient(90deg,var(--surface) 72%,transparent);backdrop-filter:blur(8px)}
+.tier-no{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:52px;font-weight:800;line-height:.9;
+  letter-spacing:-.04em;background:linear-gradient(180deg,var(--tc),transparent);
+  -webkit-background-clip:text;background-clip:text;color:transparent;opacity:.95;text-shadow:0 0 34px var(--tc)}
+.tier-txt{flex:1;min-width:0}
+.tier-txt h2{font-size:19px;font-weight:700;letter-spacing:.01em;color:var(--tc)}
+.tier-txt p{font-size:12.5px;color:var(--ink-3);margin-top:4px;line-height:1.6}
+.tier-count{font-size:12px;color:var(--ink-3);white-space:nowrap}
+.tier-count b{color:var(--tc);font-size:16px;font-weight:700}
+.depth{position:absolute;right:0;top:0;bottom:0;width:28px;display:flex;flex-direction:column;
+  justify-content:center;align-items:flex-end;gap:3px;pointer-events:none}
+.depth i{display:block;width:2px;height:16px;background:var(--tc);opacity:.28;border-radius:1px}
+.depth i.on{opacity:.9;height:24px}
+.entries{display:flex;flex-wrap:wrap;gap:8px;transition:max-width .4s cubic-bezier(.4,0,.2,1)}
+.entry{font-size:13px;padding:6px 13px;border-radius:8px;cursor:pointer;
+  background:rgba(255,255,255,var(--ea,.045));border:1px solid var(--line);color:var(--ink);
+  transition:.13s;user-select:none;line-height:1.5;display:inline-flex;align-items:center;gap:7px}
+.entry:hover{background:rgba(255,106,6,.14);border-color:var(--accent);color:#fff;
+  transform:translateY(-2px);box-shadow:0 6px 20px rgba(255,106,6,.16)}
+.entry .dot{width:5px;height:5px;border-radius:50%;background:var(--ec);flex:0 0 auto}
+.entry .tx{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:190px}
+.entry.dim{opacity:.15;pointer-events:none}
+.entry.hi{background:var(--accent);border-color:var(--accent-bright);color:#fff;font-weight:700}
+.entry.hi .dot{background:#fff}
+.more{font-size:12px;color:var(--ink-3);margin-top:14px}
+.more b{color:var(--accent);cursor:pointer}
+.mask{position:fixed;inset:0;z-index:200;background:rgba(0,0,0,.78);backdrop-filter:blur(8px);
+  display:none;align-items:center;justify-content:center;padding:24px}
+.mask.on{display:flex;animation:fade .18s ease both}
+@keyframes fade{from{opacity:0}to{opacity:1}}
+.modal{background:rgba(17,17,17,.97);border:1px solid var(--line);border-radius:16px;max-width:640px;
+  width:100%;max-height:86vh;overflow-y:auto;padding:30px 32px;box-shadow:0 24px 70px #000a;
+  animation:pop .22s cubic-bezier(.16,1,.3,1) both}
+@keyframes pop{from{opacity:0;transform:translateY(16px) scale(.97)}to{opacity:1;transform:none}}
+.modal h2{font-size:25px;font-weight:800;letter-spacing:-.01em}
+.modal .sub{font-size:12px;color:var(--ink-3);margin-top:5px;display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.modal .desc{margin:18px 0;font-size:14.5px;line-height:1.95;color:rgba(255,255,255,.88)}
+.modal .tags{display:flex;gap:7px;flex-wrap:wrap;margin-bottom:18px}
+.modal .tags span{font-size:11px;padding:3px 11px;border-radius:999px;background:rgba(255,255,255,.07);
+  color:var(--ink-2);border:1px solid var(--line)}
+.modal .books{font-size:12.5px;color:var(--ink-3);line-height:2;border-top:1px solid var(--line);padding-top:14px}
+.modal .books b{color:var(--ice)}
+.modal .acts{display:flex;gap:9px;margin-top:20px;flex-wrap:wrap}
+.modal .acts a,.modal .acts button{font-size:12.5px;padding:8px 16px;border-radius:8px;cursor:pointer;
+  text-decoration:none;background:rgba(255,255,255,.06);color:var(--ink-2);border:1px solid var(--line);font-family:inherit}
+.modal .acts a:hover,.modal .acts button:hover{background:var(--accent);color:#fff;border-color:var(--accent)}
+.empty{padding:60px;text-align:center;color:var(--ink-3)}
+.abyss{margin:60px 0 0;display:flex;align-items:center;gap:18px;padding:0 10px;opacity:.55}
+.abyss-l{flex:1;height:1px;background:linear-gradient(90deg,transparent,rgba(139,188,240,.35),transparent)}
+.abyss-c{text-align:center;white-space:nowrap}
+.abyss-t{display:block;font-size:13px;letter-spacing:.5em;color:var(--ice);opacity:.7}
+.abyss-s{display:block;font-size:11px;color:var(--ink-3);margin-top:6px;letter-spacing:.04em}
+.foot{text-align:center;padding:34px 0 0;font-size:11.5px;color:var(--ink-3);line-height:2}
+.foot b{color:var(--ink-2)}
+@media(max-width:820px){
+  .depth{display:none}.hero h1{font-size:32px}
+  main,.filters,header{padding-left:16px;padding-right:16px}
+}
+</style>
+</head>
+<body>
+
+<div class="bg">
+  <div class="bg-iceberg">
+    <svg viewBox="0 0 1440 900" preserveAspectRatio="xMidYMax slice" aria-hidden="true">
+      <defs><linearGradient id="ice" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0" stop-color="#8ebcf0" stop-opacity=".22"/>
+        <stop offset=".42" stop-color="#8ebcf0" stop-opacity=".10"/>
+        <stop offset="1" stop-color="#8ebcf0" stop-opacity=".02"/>
+      </linearGradient></defs>
+      <path d="M120 250 L1320 250 L1140 430 L1010 640 L860 900 L560 900 L420 640 L300 430 Z"
+            fill="url(#ice)" stroke="#8ebcf0" stroke-opacity=".16" stroke-width="1.5"/>
+      <path d="M600 250 L720 96 L840 250 Z" fill="url(#ice)" stroke="#8ebcf0" stroke-opacity=".2" stroke-width="1.5"/>
+      <g stroke="#8ebcf0" stroke-opacity=".13" stroke-width="1" fill="none">
+        <path d="M280 320 L520 400 L640 520 L700 700"/>
+        <path d="M1180 300 L960 390 L820 500 L740 660"/>
+        <path d="M520 400 L800 430 L1000 380"/>
+      </g>
+    </svg>
+  </div>
+  <div class="bg-water-bg"></div>
+  <div class="bg-water">
+    <svg viewBox="0 0 1440 220" preserveAspectRatio="none" aria-hidden="true">
+      <defs><linearGradient id="wg" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0" stop-color="#0a5a99" stop-opacity=".55"/>
+        <stop offset="1" stop-color="#0a5a99" stop-opacity="0"/></linearGradient></defs>
+      <path d="M0 60 Q180 30 360 60 T720 60 T1080 60 T1440 60 L1440 220 L0 220 Z" fill="url(#wg)"/>
+      <path d="M0 60 Q180 30 360 60 T720 60 T1080 60 T1440 60" fill="none" stroke="#8ebcf0" stroke-opacity=".30" stroke-width="1.5"/>
+    </svg>
+  </div>
+</div>
+<div class="deep-shade" id="shade"></div>
+
+<header>
+  <div class="brand">怪谈冰山图 <em>·</em> 探灵<small>数据源 The Weird-Esoteric Altar</small></div>
+  <div class="search">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>
+    <input id="q" placeholder="搜索词条 / 特性 / 古籍…">
+  </div>
+  <div class="hbtns">
+    <span class="hbtn" id="btn-random">随机词条</span>
+    <span class="hbtn on" id="btn-depth">深度轴</span>
+    <span class="hbtn" id="btn-compact">紧凑</span>
+  </div>
+</header>
+
+<div class="filters" id="filters"><span class="lbl">分类</span></div>
+
+<main>
+  <div class="hero">
+    <h1>越往下<br>越<em>深</em></h1>
+    <p>日常里一点微小的异样，真研究下去<br>没准就会忽然落入一片隐藏的深渊</p>
+    <div class="nums">
+      <div><b id="n-ent">—</b><span>词条</span></div>
+      <div><b>8</b><span>层级</span></div>
+      <div><b id="n-cat">—</b><span>分类</span></div>
+      <div><b id="n-src">—</b><span>已载入</span></div>
+    </div>
+  </div>
+  <div class="surface"><span>水 面</span></div>
+  <div id="tiers"></div>
+  <div class="abyss">
+    <div class="abyss-l"></div>
+    <div class="abyss-c">
+      <span class="abyss-t">深 渊</span>
+      <span class="abyss-s">冰山之下 · 尚有 13,677 条古籍原文待接入</span>
+    </div>
+    <div class="abyss-l"></div>
+  </div>
+  <div class="foot">
+    数据源 <b>The Weird-Esoteric Altar</b>（探灵 Wiki）· 3,583 条 cbaigui 妖怪<br>
+    层级与分类为<b>自动派生</b>规则，非原始字段 · 词条描述摘自各实体「基本介绍」段
+  </div>
+</main>
+
+<div class="mask" id="mask"><div class="modal" id="modal"></div></div>
+
+<script>
+const TIERS=[
+ {n:8,name:"食人 · 噬命",desc:"吃人、饮血、剖腹剜心 —— 冰山最深处",c:"#ff4d4d"},
+ {n:7,name:"色欲 · 蛊惑",desc:"媚惑、缠绵、吸人精气 —— 侵蚀人身",c:"#ff7a45"},
+ {n:6,name:"死丧 · 疫毒",desc:"带来疾病、瘟疫、尸变与死亡",c:"#ffa53c"},
+ {n:5,name:"灾异 · 害人",desc:"恶作剧、灾异、惊吓 —— 主动侵扰",c:"#ffcc4d"},
+ {n:4,name:"变化 · 异端",desc:"能变化、能复活、能预知的异端之物",c:"#a8d84d"},
+ {n:3,name:"精怪 · 常规",desc:"数量最多的志怪主体 —— 鬼狐精怪的基本盘",c:"#4dd0a0"},
+ {n:2,name:"祥瑞 · 守护",desc:"守护神、辟邪、赐福 —— 正面或中立",c:"#4dc4e8"},
+ {n:1,name:"寻常 · 草木器物",desc:"可食用、可驱使、不伤人 —— 民俗意义上的「无害」层",c:"#8ebcf0"},
+];
+const CATS={
+ demon:{n:"妖",c:"#ff8fa3"},beast:{n:"异兽",c:"#8fd48f"},ghost:{n:"鬼",c:"#9fb8e8"},
+ deity:{n:"神",c:"#f0d98a"},human:{n:"异人",c:"#d8b0e8"},object:{n:"器物",c:"#8fd4d4"},
+ plant:{n:"植物",c:"#7ee0b0"},phenomena:{n:"异象",c:"#e8c090"},other:{n:"未归类",c:"#9aa8b4"}
+};
+const $=id=>document.getElementById(id);
+let META=null, ACT=new Set(), Q="", SHOWDEPTH=true, COMPACT=false;
+const BUF={}, STATE={}, FILE={};
+let loadedCount=0;
+
+async function loadTier(t){
+  if(STATE[t]==="done"||STATE[t]==="loading")return;
+  STATE[t]="loading";
+  try{
+    // 超时保护:GitHub Pages 在国内链路慢,大文件可能几十秒
+    const ctl=new AbortController();
+    const timer=setTimeout(()=>ctl.abort(),45000);
+    const resp=await fetch(FILE[t],{signal:ctl.signal});
+    clearTimeout(timer);
+    const list=await resp.json();
+    BUF[t]=(BUF[t]||[]).concat(list);
+    STATE[t]="done"; loadedCount+=list.length;
+    $("n-src").textContent=loadedCount.toLocaleString();
+  }catch(e){
+    STATE[t]="error";
+    console.warn("tier"+t+" 载入失败:",e&&e.message);
+  }
+}
+function retryTier(t){ STATE[t]=""; return loadTier(t).then(()=>render()); }
+function ALL(){let a=[];for(const k in BUF)a=a.concat(BUF[k]);return a;}
+
+function buildFilters(){
+  const cnt=(META&&META.categories)||{};
+  const box=$("filters");
+  Object.entries(CATS).forEach(([k,v])=>{
+    const el=document.createElement("span");
+    el.className="cat";el.style.setProperty("--cat",v.c);
+    el.textContent=`${v.n} ${cnt[k]||0}`;
+    el.onclick=()=>{if(ACT.has(k))ACT.delete(k);else ACT.add(k);el.classList.toggle("on");render();};
+    box.appendChild(el);
+  });
+}
+function match(e){
+  if(ACT.size&&!ACT.has(e.category))return false;
+  if(!Q)return true;
+  const q=Q.toLowerCase();
+  return (e.title||"").toLowerCase().includes(q)||(e.desc||"").toLowerCase().includes(q)
+   ||(e.tags||[]).join(" ").toLowerCase().includes(q)||(e.books||[]).join(" ").toLowerCase().includes(q)
+   ||(e.feature||"").includes(q)||(e.shape||"").includes(q);
+}
+function esc(s){return String(s||"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));}
+
+function render(){
+  const box=$("tiers");box.innerHTML="";
+  let shown=0, anyPending=false;
+  TIERS.forEach(T=>{
+    const all=BUF[T.n]||[];
+    const st=STATE[T.n];
+    const list=all.filter(e=>match(e));
+    const sec=document.createElement("section");
+    sec.className="tier";sec.style.setProperty("--tc",T.c);sec.dataset.tier=T.n;
+    const hd=document.createElement("div");
+    hd.className="tier-hd";
+    const cntTxt = st==="done" ? `<b>${list.length}</b> 条` : (st==="loading" ? `<b>载入中…</b>` : `<b>${META&&META.tiers[T.n]?META.tiers[T.n].count:"—"}</b> 条`);
+    hd.innerHTML=`<span class="tier-no">${T.n}</span>
+      <span class="tier-txt"><h2>${T.name}</h2><p>${T.desc}</p></span>
+      <span class="tier-count">${cntTxt}</span>`;
+    sec.appendChild(hd);
+    if(st!=="done"){ anyPending=true; }
+    if(SHOWDEPTH){
+      const dep=document.createElement("div");dep.className="depth";
+      TIERS.slice().reverse().forEach(t=>{const i=document.createElement("i");if(t.n===T.n)i.className="on";dep.appendChild(i);});
+      sec.appendChild(dep);
+    }
+    const g=document.createElement("div");
+    g.className="entries";
+    if(!COMPACT){const w=100-(8-T.n)*5;g.style.maxWidth=w+"%";}
+    if(st!=="done"&&!all.length){
+      const ld=document.createElement("div");
+      ld.className="loading";
+      if(st==="loading") ld.textContent="载入中…";
+      else if(st==="error"){
+        ld.innerHTML=`载入失败（网络较慢）· <b style="color:var(--accent);cursor:pointer" onclick="retryTier(${T.n})">重试</b>`;
+      } else ld.textContent="↓ 向下滚动以载入本层";
+      g.appendChild(ld);
+      sec.appendChild(g);
+      box.appendChild(sec);
+      return;
+    }
+    g.style.setProperty("--ea",(0.085-(8-T.n)*0.009).toFixed(3));
+    const LIMIT=COMPACT?1200:80;
+    list.slice(0,LIMIT).forEach(e=>{
+      const el=document.createElement("span");
+      el.className="entry";el.style.setProperty("--ec",CATS[e.category]?.c||"#8ebcf0");
+      el.innerHTML=`<i class="dot"></i><span class="tx">${esc(e.title)}</span>`;
+      el.onclick=()=>openModal(e);
+      g.appendChild(el);
+    });
+    sec.appendChild(g);
+    if(list.length>LIMIT){
+      const m=document.createElement("div");
+      m.className="more";
+      m.innerHTML=`另有 <b>${list.length-LIMIT}</b> 条未展开 · <b onclick="this.closest('.tier').querySelector('.entries').style.maxWidth='100%';this.remove()">全部显示</b>`;
+      sec.appendChild(m);
+    }
+    box.appendChild(sec);
+    shown+=list.length;
+  });
+  if(!shown&&!anyPending)box.innerHTML='<div class="empty">没有匹配的词条</div>';
+}
+
+function openModal(e){
+  const tags=[...(e.tags||[]),e.feature,e.shape,e.dist,e.dynasty,e.world].filter(Boolean);
+  const T=TIERS.find(t=>t.n===e.tier);
+  $("modal").innerHTML=`<h2>${esc(e.title)}</h2>
+    <div class="sub"><span style="color:${T?T.c:"#8ebcf0"}">层级 ${e.tier} · ${T?T.name:""}</span>
+      <span>·</span><span>${CATS[e.category]?.n||e.category}</span></div>
+    <div class="tags">${tags.slice(0,10).map(t=>`<span>${esc(t)}</span>`).join("")}</div>
+    <div class="desc">${esc(e.desc||"这个词条还没有描述……")}</div>
+    ${(e.books||[]).length?`<div class="books"><b>文献资料</b><br>${e.books.map(b=>esc(b)).join("<br>")}</div>`:""}
+    <div class="acts">
+      ${e.link?`<a href="${e.link}" target="_blank" rel="noopener">访问来源 ↗</a>`:""}
+      <button onclick="document.getElementById('mask').classList.remove('on')">关闭</button>
+    </div>`;
+  $("mask").classList.add("on");
+}
+$("mask").addEventListener("click",ev=>{if(ev.target.id==="mask")ev.target.classList.remove("on");});
+
+async function boot(){
+  META=await (await fetch("data/index.json")).json();
+  for(const [t,info] of Object.entries(META.tiers)) FILE[t]=info.file;
+  $("n-ent").textContent=META.total.toLocaleString();
+  $("n-cat").textContent=Object.keys(CATS).length;
+  buildFilters();
+  render();                 // 先画骨架(8 层标题 + 占位),不等数据
+  // 数据层异步加载,谁先回来谁先渲染
+  loadTier(8).then(()=>render());
+  loadTier(3).then(()=>render());
+  $("q").addEventListener("input",async ev=>{
+    Q=ev.target.value.trim();
+    if(Q){for(const t of Object.keys(FILE))await loadTier(+t);}
+    render();
+  });
+  $("btn-random").onclick=()=>{const c=ALL().filter(match);if(c.length)openModal(c[Math.floor(Math.random()*c.length)]);};
+  $("btn-depth").onclick=e=>{SHOWDEPTH=!SHOWDEPTH;e.target.classList.toggle("on",SHOWDEPTH);render();};
+  $("btn-compact").onclick=e=>{COMPACT=!COMPACT;e.target.classList.toggle("on",COMPACT);render();};
+  // 滚动越深越黑
+  addEventListener("scroll",()=>{
+    const hh=document.body.scrollHeight-innerHeight;
+    const p=hh>0?scrollY/hh:0;
+    $("shade").style.opacity=Math.min(.72,p*.95);
+  },{passive:true});
+  // 用 IntersectionObserver 在层级区块接近视口时加载该层数据
+  if(window.IntersectionObserver){
+    const io=new IntersectionObserver(entries=>{
+      entries.forEach(en=>{
+        if(en.isIntersecting){
+          const t=+en.target.dataset.tier;
+          if(STATE[t]!=="done"){ loadTier(t).then(()=>render()); }
+          io.unobserve(en.target);
+        }
+      });
+    },{rootMargin:"800px 0px"});
+    TIERS.forEach(T=>{
+      const el=document.querySelector(`[data-tier="${T.n}"]`);
+      if(el) io.observe(el);
+    });
+    // render 后重新挂观察
+    const origRender=render;
+    render=function(){ origRender(); TIERS.forEach(T=>{
+      const el=document.querySelector(`[data-tier="${T.n}"]`);
+      if(el&&STATE[T.n]!=="done") io.observe(el);
+    }); };
+  }
+}
+boot();
+</script>
+</body>
+</html>
