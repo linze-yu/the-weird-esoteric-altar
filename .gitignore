@@ -3,5 +3,5 @@ site/entries.json
 *.log
 .DS_Store
 
-# 字体工具产物
-*.woff2.tmp
+# 字体源(构建时会被子集化替换成 .woff2)
+# 注意:NotoSansSC.ttf 保留在仓库里,Actions 需要它做子集化

@@ -31,7 +31,14 @@ jobs:
       - name: 从 wiki 原文重建词条数据
         run: |
           python3 tools/extract_entries.py wiki/entities/cbaigui site/entries.json
-          python3 tools/optimize_site.py .
+          python3 tools/optimize_site.py site site/entries.json site/NotoSansSC.ttf
+
+      - name: 确认产物齐全
+        run: |
+          test -f site/index.html
+          test -f site/NotoSansSC.woff2
+          test -f site/data/index.json
+          ls -la site site/data
 
       - name: 上传 Pages 产物
         uses: actions/upload-pages-artifact@v3
